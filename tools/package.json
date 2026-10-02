@@ -1,0 +1,13 @@
+{
+  "name": "motion-playbook-tools",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "perf": "node perf.mjs",
+    "idle": "node idle-frames.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  }
+}

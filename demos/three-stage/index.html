@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>three.js stage · Motion Playbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wght@600..800&family=DM+Sans:wght@400..700&family=Space+Mono:wght@400;700&display=swap" />
+    <link rel="stylesheet" href="/src/base.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="topbar"><a href="/">← Demos</a><span>three.js stage</span></nav>
+    <main id="main">
+      <section class="spine" data-spine>
+        <div class="stage" data-stage aria-hidden="true" data-nosnippet>
+          <div class="stage__host" data-host></div>
+          <div class="stage__labels">
+            <span class="stage-label" data-label="crystal" data-text="Crystal"></span>
+            <span class="stage-label" data-label="swarm" data-text="64 instanced units"></span>
+          </div>
+        </div>
+        <div class="chapters">
+          <article class="chapter" data-scene="ring">
+            <p class="eyebrow">05 · three.js</p>
+            <h1>A 3D stage that never stalls the scroll.</h1>
+            <p>The scene is built in an idle slot after the page paints. Shaders compile in the background, every program is warmed up once, and only then does the intro play.</p>
+          </article>
+          <article class="chapter" data-scene="helix">
+            <h2>Compile before you need it</h2>
+            <p><code>renderer.compileAsync()</code> plus one render with frustum culling off means no program is ever built mid-scroll. Watch the program count in the corner: it never changes once the scene is up.</p>
+          </article>
+          <article class="chapter" data-scene="grid">
+            <h2>Resolution that adapts</h2>
+            <p>The renderer tracks average frame time. Slower than 22 ms and it drops the pixel ratio a step; faster than 12 ms and it climbs back, never more than once every 1.5 seconds.</p>
+          </article>
+          <article class="chapter" data-scene="cloud">
+            <h2>Sleep when nobody's watching</h2>
+            <p>The render loop only plays while this section is on screen, and the whole anime.js engine pauses six seconds after the last input. Stop scrolling and watch the engine row in the readout.</p>
+          </article>
+        </div>
+      </section>
+      <section class="after"><p>End of the stage.</p></section>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

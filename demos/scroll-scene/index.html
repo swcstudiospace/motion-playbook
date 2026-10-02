@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Scroll scene · Motion Playbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wght@600..800&family=DM+Sans:wght@400..700&family=Space+Mono:wght@400;700&display=swap" />
+    <link rel="stylesheet" href="/src/base.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="topbar">
+      <a href="/">← Demos</a><span>Scroll scene</span>
+      <span class="topbar__modes"><a href="?mode=tracks" data-mode-link="tracks">Tracks</a><a href="?mode=tweens" data-mode-link="tweens">Tweens</a></span>
+    </nav>
+    <main id="main">
+      <section class="spine" data-spine>
+        <div class="stage" data-stage aria-hidden="true" data-nosnippet>
+          <div class="stage__field" data-field></div>
+          <p class="stage__readout" data-readout></p>
+        </div>
+        <div class="chapters">
+          <article class="chapter" data-formation="ring">
+            <p class="eyebrow">02 · Scroll scene</p>
+            <h1>One timeline. Zero per-dot tweens.</h1>
+            <p>140 squares move through six formations as you scroll. Switch between <b>Tracks</b> and <b>Tweens</b> at the top and compare the setup time in the corner.</p>
+          </article>
+          <article class="chapter" data-formation="grid">
+            <h2>Grid</h2>
+            <p>The tweens version adds one animation per square per chapter: 700 of them here. The tracks version stores start and end positions and works out each square from the timeline's current time.</p>
+          </article>
+          <article class="chapter" data-formation="wave">
+            <h2>Wave</h2>
+            <p>Both versions read <code>timeline.currentTime</code>, so scroll smoothing, seeking and reversing behave identically.</p>
+          </article>
+          <article class="chapter" data-formation="spiral">
+            <h2>Spiral</h2>
+            <p>Staggering is just a per-square offset on the segment's start time, so it costs nothing extra.</p>
+          </article>
+          <article class="chapter" data-formation="burst">
+            <h2>Burst</h2>
+            <p>The render loop is an anime.js timer that only plays while this section is on screen, and the whole engine sleeps after six seconds without input.</p>
+          </article>
+          <article class="chapter" data-formation="stack">
+            <h2>Stack</h2>
+            <p>On spectrumweb.co this change took the 3D scene's setup from roughly 780 ms of timeline building to under 120 ms.</p>
+          </article>
+        </div>
+      </section>
+      <section class="after"><p>End of the scene.</p></section>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

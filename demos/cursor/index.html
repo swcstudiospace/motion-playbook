@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Cursor springs · Motion Playbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wght@600..800&family=DM+Sans:wght@400..700&family=Space+Mono:wght@400;700&display=swap" />
+    <link rel="stylesheet" href="/src/base.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="topbar"><a href="/">← Demos</a><span>Cursor springs</span></nav>
+    <main id="main" class="cursor-page">
+      <header>
+        <p class="eyebrow">06 · Pointer</p>
+        <h1>Follow the hand, not the frame.</h1>
+        <p class="lede">Pointer events only update targets. anime.js animatables do the smoothing, so a burst of 200 pointer events per second still costs one style write per frame. On touch screens everything simply sits still.</p>
+      </header>
+      <div class="row">
+        <button class="btn magnet" type="button" data-magnet><span>Magnetic</span></button>
+        <button class="btn btn--ghost magnet" type="button" data-magnet><span>Springy</span></button>
+      </div>
+      <div class="tilt" data-tilt>
+        <p class="eyebrow">Tilt card</p>
+        <p class="tilt__title">Rotate toward the cursor.</p>
+        <p class="tilt__body">The card's box is measured when the pointer enters it, not on every move.</p>
+      </div>
+    </main>
+    <div class="follower" data-follower aria-hidden="true"></div>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

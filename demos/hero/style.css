@@ -1,0 +1,62 @@
+.topbar__modes {
+  display: flex;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.hero {
+  display: grid;
+  gap: 22px;
+  align-content: center;
+  max-width: 980px;
+  min-height: calc(100vh - 60px);
+  margin: 0 auto;
+  padding: 40px var(--gutter) 120px;
+}
+
+.hero__title {
+  font-size: clamp(44px, 8.4vw, 104px);
+}
+
+.hero__lede {
+  max-width: 58ch;
+  font-size: clamp(17px, 1.6vw, 20px);
+  color: var(--ink-soft);
+}
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@keyframes hero-in {
+  from {
+    transform: translateY(0.28em);
+    opacity: 0.35;
+  }
+}
+
+.motion .hero__title {
+  animation: hero-in 0.9s var(--ease-out) both;
+}
+
+.motion .hero__lede {
+  animation: hero-in 0.9s var(--ease-out) 0.12s both;
+}
+
+@keyframes enhance-fallback {
+  to {
+    opacity: 1;
+  }
+}
+
+.motion:not(.motion-ready) [data-enhance] {
+  opacity: 0;
+  animation: enhance-fallback 0s linear 2.5s forwards;
+}
+
+.bad:not(.motion-ready) [data-hero] {
+  opacity: 0;
+  animation: none;
+}

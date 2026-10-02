@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Motion Playbook demos</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wght@600..800&family=DM+Sans:wght@400..700&family=Space+Mono:wght@400;700&display=swap" />
+    <link rel="stylesheet" href="/src/base.css" />
+    <style>
+      .hub {
+        max-width: 960px;
+        margin: 0 auto;
+        padding: clamp(48px, 9vw, 96px) var(--gutter);
+        display: grid;
+        gap: 28px;
+      }
+      .hub h1 {
+        font-size: clamp(40px, 7vw, 76px);
+      }
+      .hub > p {
+        max-width: 60ch;
+        color: var(--ink-soft);
+      }
+      .demos {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+        gap: 14px;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+      }
+      .demos a {
+        display: grid;
+        gap: 6px;
+        height: 100%;
+        padding: 18px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: var(--surface);
+        color: var(--ink);
+        text-decoration: none;
+        transition: border-color 0.2s, transform 0.2s var(--ease-out);
+      }
+      .demos a:hover {
+        border-color: var(--violet);
+        transform: translateY(-2px);
+      }
+      .demos strong {
+        font-family: var(--font-display);
+        font-size: 22px;
+        letter-spacing: -0.02em;
+      }
+      .demos span {
+        color: var(--ink-soft);
+        font-size: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="hub">
+      <p class="eyebrow">Motion Playbook · anime.js v4</p>
+      <h1>Six demos, one rule each.</h1>
+      <p>Each page is a working example of a technique from the playbook. Open DevTools → Performance while you scroll, and watch the readout in the corner.</p>
+      <ul class="demos">
+        <li><a href="/reveal/"><strong>Scroll reveals</strong><span>Scrubbed in-hold-out reveals with no layout reads and blur only where it's cheap.</span></a></li>
+        <li><a href="/scroll-scene/"><strong>Scroll scene</strong><span>Precomputed tracks vs thousands of tweens. Same motion, a fraction of the setup.</span></a></li>
+        <li><a href="/faq-morph/"><strong>FAQ morph</strong><span>A bento card that absorbs the grid, built with FLIP on a wrapper that scroll reveals don't touch.</span></a></li>
+        <li><a href="/hero/"><strong>LCP-safe hero</strong><span>Hero text paints with the first frame; motion code loads after it.</span></a></li>
+        <li><a href="/three-stage/"><strong>three.js stage</strong><span>Async shader compile, prewarm, adaptive resolution and a render loop that sleeps.</span></a></li>
+        <li><a href="/cursor/"><strong>Cursor springs</strong><span>createAnimatable followers, magnetic buttons and tilt with zero per-move layout reads.</span></a></li>
+      </ul>
+    </main>
+  </body>
+</html>

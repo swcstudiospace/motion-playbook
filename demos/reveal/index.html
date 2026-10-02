@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>Scroll reveals · Motion Playbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wght@600..800&family=DM+Sans:wght@400..700&family=Space+Mono:wght@400;700&display=swap" />
+    <script>
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("motion");
+    </script>
+    <link rel="stylesheet" href="/src/base.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="topbar"><a href="/">← Demos</a><span>Scroll reveals</span></nav>
+    <main id="main" class="reveal-page">
+      <header class="intro">
+        <p class="eyebrow">01 · Reveals</p>
+        <h1>Content that arrives as you read.</h1>
+        <p class="lede">The title and this paragraph are visible before any JavaScript runs. Everything below is scrubbed by scroll: it fades in, holds while you read it, and leaves as it scrolls away.</p>
+      </header>
+      <section class="block">
+        <p class="eyebrow">Rule</p>
+        <h2 data-split>Measure once, write every frame.</h2>
+        <p data-reveal>Each reveal reads its element height once at setup. During scroll, anime.js only writes opacity and transform, so the browser never has to recalculate layout mid-frame.</p>
+        <ul data-reveal>
+          <li>Heights read at setup and on resize</li>
+          <li>Opacity and transform during scroll</li>
+          <li>No getBoundingClientRect in the hot path</li>
+        </ul>
+      </section>
+      <section class="block">
+        <p class="eyebrow">Rule</p>
+        <h2 data-split>Words slide, they don't blur.</h2>
+        <p data-reveal>Splitting a heading into words gives you a lovely masked rise. Blurring each word as well creates one filter layer per word, and every one is repainted on every scroll frame. Keep the rise, drop the per-word blur.</p>
+      </section>
+      <section class="block">
+        <p class="eyebrow">Rule</p>
+        <h2 data-split>Blur where it's cheap.</h2>
+        <p data-reveal>Blocks get a soft 8px blur on desktops with a fine pointer, and none on phones. Phones still get the fade and the rise, which is what the eye actually tracks.</p>
+      </section>
+      <section class="block">
+        <p class="eyebrow">Rule</p>
+        <h2 data-split>Smooth the scrub.</h2>
+        <p data-reveal>A sync value of 0.45 lets each reveal glide toward the scroll position instead of snapping to it. With reduced motion turned on, everything is simply visible.</p>
+      </section>
+      <section class="block block--end">
+        <p class="eyebrow">Fallback</p>
+        <h2 data-split>Never stuck invisible.</h2>
+        <p data-reveal>Elements start hidden only when motion is on, and a CSS animation reveals them after 2.5 seconds if the JavaScript never arrives.</p>
+      </section>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

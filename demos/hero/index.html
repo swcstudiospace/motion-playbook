@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>LCP-safe hero · Motion Playbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wght@600..800&family=DM+Sans:wght@400..700&family=Space+Mono:wght@400;700&display=swap" />
+    <script>
+      if (!matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("motion");
+      if (new URLSearchParams(location.search).get("bad") === "1") document.documentElement.classList.add("bad");
+    </script>
+    <link rel="stylesheet" href="/src/base.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="topbar">
+      <a href="/">← Demos</a><span>LCP-safe hero</span>
+      <span class="topbar__modes"><a href="?bad=0" data-mode="good">CSS-first</a><a href="?bad=1" data-mode="bad">Hidden until JS</a></span>
+    </nav>
+    <main id="main" class="hero">
+      <p class="eyebrow" data-enhance data-eyebrow>04 · First paint</p>
+      <h1 class="hero__title" data-hero>Paint the words first. Animate them second.</h1>
+      <p class="hero__lede" data-hero>This headline and paragraph are in the HTML and visible on the first frame, with a CSS-only rise. The eyebrow and buttons are the only things waiting for JavaScript, and that JavaScript loads after the first paint.</p>
+      <div class="hero__actions" data-enhance>
+        <a class="btn" href="?bad=1">Try the slow version</a>
+        <a class="btn btn--ghost" href="/">All demos</a>
+      </div>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

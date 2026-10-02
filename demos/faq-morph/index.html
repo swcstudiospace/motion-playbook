@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <title>FAQ morph · Motion Playbook</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anybody:wght@600..800&family=DM+Sans:wght@400..700&family=Space+Mono:wght@400;700&display=swap" />
+    <link rel="stylesheet" href="/src/base.css" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <nav class="topbar"><a href="/">← Demos</a><span>FAQ morph</span></nav>
+    <main id="main" class="faq-page">
+      <header>
+        <p class="eyebrow">03 · FAQ morph</p>
+        <h1>Open one, the grid makes room.</h1>
+        <p class="lede">Click a question. The others fade out and the card grows to fill the whole grid. Click anywhere outside it, click the question again, or press Escape to put everything back.</p>
+      </header>
+
+      <section>
+        <h2 class="section-title">Bento grid</h2>
+        <div class="bento" data-bento>
+          <div class="bento__cell bento__cell--0" data-bento-cell data-reveal>
+            <details class="bento__item" name="faq-a" data-faq>
+              <summary class="bento__q"><span class="bento__index">01</span><h3 class="bento__title">Why separate the cell from the card?</h3><i class="bento__icon" aria-hidden="true"></i></summary>
+              <div class="bento__a" data-faq-body><p>The cell is the grid item and owns the scroll reveal. The card inside it is free for the morph. If both animated the same element's transform, anime.js would replace one animation with the other.</p></div>
+            </details>
+          </div>
+          <div class="bento__cell bento__cell--1" data-bento-cell data-reveal>
+            <details class="bento__item" name="faq-a" data-faq>
+              <summary class="bento__q"><span class="bento__index">02</span><h3 class="bento__title">What is FLIP?</h3><i class="bento__icon" aria-hidden="true"></i></summary>
+              <div class="bento__a" data-faq-body><p>First, Last, Invert, Play. Measure the card, change the layout, measure again, then animate from the old box to the new one with transform and size.</p></div>
+            </details>
+          </div>
+          <div class="bento__cell bento__cell--2" data-bento-cell data-reveal>
+            <details class="bento__item" name="faq-a" data-faq>
+              <summary class="bento__q"><span class="bento__index">03</span><h3 class="bento__title">Does the page jump?</h3><i class="bento__icon" aria-hidden="true"></i></summary>
+              <div class="bento__a" data-faq-body><p>No. The grid keeps its height while one card is open, so nothing below it moves and scroll-linked scenes keep their timing.</p></div>
+            </details>
+          </div>
+          <div class="bento__cell bento__cell--3" data-bento-cell data-reveal>
+            <details class="bento__item" name="faq-a" data-faq>
+              <summary class="bento__q"><span class="bento__index">04</span><h3 class="bento__title">Is it accessible?</h3><i class="bento__icon" aria-hidden="true"></i></summary>
+              <div class="bento__a" data-faq-body><p>It's a native details element, so the question is a real button. Hidden cards leave the tab order, Escape closes and returns focus, and reduced motion swaps the morph for an instant change.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Stacked list</h2>
+        <div class="bento bento--stack" data-bento>
+          <div class="bento__cell" data-bento-cell data-reveal>
+            <details class="bento__item" name="faq-b" data-faq>
+              <summary class="bento__q"><span class="bento__index">01</span><h3 class="bento__title">Same code, one column?</h3><i class="bento__icon" aria-hidden="true"></i></summary>
+              <div class="bento__a" data-faq-body><p>Yes. Only the CSS differs. The open card takes the full grid area whatever the layout.</p></div>
+            </details>
+          </div>
+          <div class="bento__cell" data-bento-cell data-reveal>
+            <details class="bento__item" name="faq-b" data-faq>
+              <summary class="bento__q"><span class="bento__index">02</span><h3 class="bento__title">How long does it take?</h3><i class="bento__icon" aria-hidden="true"></i></summary>
+              <div class="bento__a" data-faq-body><p>260 ms to fade the others out, 560 ms for the card to settle, with the answer starting 260 ms in. Closing is a little quicker than opening.</p></div>
+            </details>
+          </div>
+          <div class="bento__cell" data-bento-cell data-reveal>
+            <details class="bento__item" name="faq-b" data-faq>
+              <summary class="bento__q"><span class="bento__index">03</span><h3 class="bento__title">What if I double-click?</h3><i class="bento__icon" aria-hidden="true"></i></summary>
+              <div class="bento__a" data-faq-body><p>Clicks are ignored while a morph is running, so the card can't get stuck halfway.</p></div>
+            </details>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="./main.js"></script>
+  </body>
+</html>

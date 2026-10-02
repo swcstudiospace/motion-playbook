@@ -1,0 +1,86 @@
+.cursor-page {
+  display: grid;
+  gap: 40px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: clamp(40px, 8vw, 88px) var(--gutter) 120px;
+}
+
+.cursor-page header {
+  display: grid;
+  gap: 16px;
+}
+
+.cursor-page h1 {
+  font-size: clamp(38px, 6.4vw, 72px);
+}
+
+.lede {
+  max-width: 60ch;
+  color: var(--ink-soft);
+}
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.magnet {
+  padding: 18px 30px;
+}
+
+.magnet span {
+  display: inline-block;
+  pointer-events: none;
+}
+
+.tilt {
+  display: grid;
+  gap: 10px;
+  max-width: 460px;
+  padding: 32px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: 0 30px 60px -40px rgb(69 24 143 / 0.55);
+  transform: perspective(900px);
+  transform-style: preserve-3d;
+}
+
+.tilt__title {
+  font-family: var(--font-display);
+  font-size: 30px;
+  font-weight: 750;
+  letter-spacing: -0.02em;
+}
+
+.tilt__body {
+  color: var(--ink-soft);
+}
+
+.follower {
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 40;
+  width: 14px;
+  height: 14px;
+  margin: -7px 0 0 -7px;
+  border-radius: 50%;
+  background: var(--neon);
+  box-shadow: 0 0 18px rgb(139 92 246 / 0.6);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.follower.is-on {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .follower {
+    display: none;
+  }
+}
